@@ -1,7 +1,12 @@
 from __future__ import print_function
-import psutil
-cpu_temp = psutil.sensors_temperatures().get("coretemp") # In Celsius
-print(cpu_temp)
+import psutil, platform
+
+#Testing git
+
+#cpu_temp = psutil.sensors_temperatures().get("coretemp") # In Celsius
+cpu_temp = psutil.sensors_temperatures()
+print(cpu_temp['coretemp'][1])
+print(cpu_temp['coretemp'][2])
 
 cpu_count = psutil.cpu_count()
 print("CPU Count:       {}".format(cpu_count))
