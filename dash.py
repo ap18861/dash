@@ -1,10 +1,21 @@
 from __future__ import print_function
-import psutil, platform
+from collections import OrderedDict
+import psutil, platform, subprocess, pprint
 
+#Show platform 
+print(platform.uname())
+print(platform.linux_distribution())
+
+#show cpu family
+
+output = subprocess.check_output("cat /proc/cpuinfo", shell=True)
+# cpu_output = Ordereddict()
+# print(cpu_output)
 #show cpu temp
 cpu_temp = psutil.sensors_temperatures()
 core1 = cpu_temp['coretemp'][1]
 core2 = cpu_temp['coretemp'][2]
+
 print("{}:          {}".format(core1[0],core1[1]))
 print("{}:          {}".format(core2[0],core2[1]))
 
